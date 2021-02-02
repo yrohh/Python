@@ -82,10 +82,11 @@ def start():
     direc = "C:\\Users\\yoonjun\\Desktop\\알바\\제출\\출근"
     my_msg = '안녕하세요~ 업무 시작하겠습니다!'
     while True:
-        time.sleep(5)
+        time.sleep(10)
         ctime = time.strftime('%H:%M')
-        if ctime == '22:21':
+        if ctime == '08:57':
             run_kakao()
+            time.sleep(3)
             enter_chatroom(chatroom_idx)
             pyautogui.hotkey('ctrl','t')
             pyautogui.hotkey('fn','f4')
@@ -100,8 +101,9 @@ def start():
             pyautogui.hotkey('ctrl','a')
             pyautogui.hotkey('ctrl','a')
             pyautogui.hotkey('alt','o')
-            time.sleep(2)
+            time.sleep(1)
             send_msg(my_msg)
+            time.sleep(7)
             pyautogui.hotkey('esc')
             print('출근 완료')
             return True
@@ -113,15 +115,16 @@ def start():
 def report_am():
     initialize()
     chatroom_idx = 1
-    my_msg = '1200개 검수했습니다!'
+    my_msg = '1000개 검수했습니다!'
     while True:
-        time.sleep(5)
+        time.sleep(10)
         ctime = time.strftime('%H:%M')
-        if ctime == '22:21': 
+        if ctime == '10:57': 
             run_kakao()
+            time.sleep(3)
             enter_chatroom(chatroom_idx)
             send_msg(my_msg)
-            time.sleep(2)
+            time.sleep(7)
             pyautogui.press('esc')
             print('오전 보고 완료')           
             return True
@@ -133,15 +136,16 @@ def report_am():
 def report_pm():
     initialize()
     chatroom_idx = 1
-    my_msg = '3300개 검수했습니다!'
+    my_msg = '3000개 검수했습니다!'
     while True:
-        time.sleep(5)
+        time.sleep(10)
         ctime = time.strftime('%H:%M')
-        if ctime == '22:21': 
+        if ctime == '14:58': 
             run_kakao()
+            time.sleep(3)
             enter_chatroom(chatroom_idx)
             send_msg(my_msg)
-            time.sleep(2)
+            time.sleep(7)
             pyautogui.press('esc')
             print('오후 보고 완료')           
             return True
@@ -149,7 +153,8 @@ def report_pm():
         else :
             print(f'오후 보고 매크로 예정입니다. 현재 시각 : {ctime}')
 
-# 퇴근 함수
+# 퇴근 함수_2일부터 ㅈㅎ에게 보내야 하므로 매크로 필요 없음.
+'''
 def leave():
     initialize()
     chatroom_idx = 1
@@ -158,8 +163,9 @@ def leave():
     while True:
         time.sleep(5)
         ctime = time.strftime('%H:%M')
-        if ctime == '22:21':
+        if ctime == '23:45':
             run_kakao()
+            time.sleep(1)
             enter_chatroom(chatroom_idx)
             pyautogui.hotkey('ctrl','t')
             pyautogui.hotkey('fn','f4')
@@ -174,14 +180,16 @@ def leave():
             pyautogui.hotkey('ctrl','a')
             pyautogui.hotkey('ctrl','a')
             pyautogui.hotkey('alt','o')
-            time.sleep(2)
+            time.sleep(1)
             send_msg(my_msg)
+            time.sleep(10)
             pyautogui.hotkey('esc')
             print('퇴근 완료')
             return True
             break
         else :
             print(f'퇴근 매크로 실행 예정입니다. 현재 시각 : {ctime}')
+'''
 
 
 
@@ -201,9 +209,8 @@ if __name__ == "__main__":
     start = start()
     report_am = report_am()
     report_pm = report_pm()
-    leave = leave()
-    if start & report_am & report_pm & leave:
+    # leave = leave()
+    if start & report_am & report_pm:
         exit(0)
-
 
 # 참고 출처 : https://shine-yeolmae.tistory.com/52
