@@ -8,27 +8,34 @@ import platform
 import subprocess
 import time
 
+
 # 좌표 확인단
 '''
 time.sleep(5)
 x, y = pyautogui.position()
-print(x, y)
+print(f'숨겨진 아이콘 표시 : {x, y}')
+time.sleep(5)
+x, y = pyautogui.position()
+print(f'카카오톡 : {x, y}')
+time.sleep(5)
+x, y = pyautogui.position()
+print(f'채팅방 위치 : {x, y}')
+time.sleep(5)
+x, y = pyautogui.position()
+print(f'파일 전송 : {x, y}')
+time.sleep(5)
+x, y = pyautogui.position()
+print(f'주소창 : {x, y}')
+time.sleep(5)
+x, y = pyautogui.position()
+print(f'폴더 여백 : {x, y}')
 '''
-
-# 숨겨진 아이콘 표시 1677 1055
-# 카카오톡 1645 1017
-# 채팅방 위치 1441 256
-# 파일전송 1291 828
-# 주소창 1402 300
-# 폴더 여백 1320 532
-
-
 
 # 카카오톡 실행 및 채팅방 접속
 def run_kakao():
-    pyautogui.click(1677, 1055)
-    pyautogui.doubleClick(1645, 1017)
-    pyautogui.doubleClick(1441, 256)
+    pyautogui.click(1679, 1062)
+    pyautogui.doubleClick(1643, 1020)
+    pyautogui.doubleClick(1790, 117)
 
 # 카카오톡 지정 메시지 전송
 def send_msg(arg):
@@ -39,7 +46,7 @@ def send_msg(arg):
 # 출근
 def start():
     direc = "C:\\Users\\yoonjun\\Desktop\\알바\\제출\\출근"
-    msg = '안녕하세요, 테스트 중입니다.'
+    msg = '안녕하세요, 업무 시작하겠습니다!.'
 
     while True:
         time.sleep(3)
@@ -47,11 +54,12 @@ def start():
 
         if ctime == '08:58':
             run_kakao()
-            pyautogui.click(1291, 828)
-            pyautogui.click(1402, 300)
+            pyautogui.click(1291, 831)
+            pyautogui.click(1462, 301)
             pyperclip.copy(direc)
             pyautogui.hotkey('ctrl','v')
-            pyautogui.click(1320, 532)
+            pyautogui.hotkey('enter')
+            pyautogui.click(1426, 453)
             pyautogui.hotkey('ctrl','a')
             pyautogui.hotkey('alt','o')
             time.sleep(1)
@@ -73,7 +81,7 @@ def report_am():
         time.sleep(3)
         ctime = time.strftime('%H:%M')
 
-        if ctime == '10:57':
+        if ctime == '10:58':
             run_kakao()
             send_msg(msg)
             pyautogui.hotkey('esc')
@@ -83,25 +91,6 @@ def report_am():
 
         else:
             print(f'오전 보고 매크로 실행 예정입니다. 현재 시각 : {ctime}')
-
-# 오후 보고
-def report_pm():
-    msg = '3000개 검수했습니다!'
-
-    while True:
-        time.sleep(3)
-        ctime = time.strftime('%H:%M')
-
-        if ctime == '14:57':
-            run_kakao()
-            send_msg(msg)
-            pyautogui.hotkey('esc')
-            print('오후 보고 완료')
-            return True
-            break
-
-        else:
-            print(f'오후 보고 매크로 실행 예정입니다. 현재 시각 : {ctime}')  
 
 # Config changed by OS
 cmd_key = 'ctrl'
@@ -117,11 +106,9 @@ pyautogui.PAUSE = 1
 
 # 매크로 실행
 if __name__ == "__main__":
-    #start = start()
-    #time.sleep(1)
-    report_am = report_am()
+    start = start()
     time.sleep(1)
-    report_pm = report_pm()
+    report_am = report_am()
 
-    if report_am & report_pm:
+    if start & report_am:
         exit(0)
