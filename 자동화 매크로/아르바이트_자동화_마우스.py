@@ -46,7 +46,7 @@ def send_msg(arg):
 # 출근
 def start():
     direc = "C:\\Users\\yoonjun\\Desktop\\알바\\제출\\출근"
-    msg = '안녕하세요, 업무 시작하겠습니다!.'
+    msg = '안녕하세요~ 업무 시작하겠습니다!.'
 
     while True:
         time.sleep(3)
@@ -75,7 +75,7 @@ def start():
 
 # 오전 보고
 def report_am():
-    msg = '1000개 검수했습니다!'
+    msg = '1000개 검수했습니다~'
 
     while True:
         time.sleep(3)
