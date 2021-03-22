@@ -16,7 +16,8 @@ def btncmd() :
         time.sleep(10)
         ftime = time.strftime("%H:%M") # 현재 시각.
         if ftime == qtime :
-            pyautogui.doubleClick(1918, 1055) # 1918 1055 바탕화면 바로가기 영역.
+            pyautogui.hotkey('win','d') # 바탕화면 이동.
+            time.sleep(1)
             msgbox.showinfo("Alarm", "Just get some rest") # 알람창 띄우기.
             break
 
